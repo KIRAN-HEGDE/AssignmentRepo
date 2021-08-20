@@ -1,16 +1,43 @@
-<mvc:View
+<mvc:View xmlns:control="sap.gantt.control"
     controllerName="assignmentrepo.controller.App"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
 >
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content />
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <Table id="table" 
+                            items="{
+                                path: 'games>/',
+                                sorter: {
+                                    path : 'Total',
+                                    descending : true
+                                }
+                            }">
+                               
+                                <columns>
+                                    <Column id="Country">
+                                        <Text text="Country"/>
+                                    </Column>
+                                    <Column id="Total">
+                                        <Text text="Total"/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem >
+                                        <cells>
+                                            <Text text="{games>Country}"/>
+                                            <Text text="{games>Total}"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>
